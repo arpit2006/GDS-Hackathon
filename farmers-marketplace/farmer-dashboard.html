@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Dashboard - Kisan Bazar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.css">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <h2>Kisan Bazar</h2>
+                    <span class="tagline">किसान बाज़ार</span>
+                </div>
+                <div class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li class="active">
+                        <a href="farmer-dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="farmer-products.html">
+                            <i class="fas fa-boxes"></i>
+                            <span>Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="farmer-orders.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Orders</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="farmer-request.html">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Request to Companies</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="farmer-logistics.html">
+                            <i class="fas fa-truck"></i>
+                            <span>Logistics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="farmer-reports.html">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="farmer-profile.html">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="header-title">
+                    <h1>Farmer Dashboard</h1>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-info">
+                        <img src="images/farmer-avatar.jpg" alt="Farmer Profile" class="user-avatar">
+                        <div class="user-details">
+                            <h4>Green Valley Farms</h4>
+                            <p>Farmer</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-card-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="stat-card-info">
+                            <h3>Total Products</h3>
+                            <p class="stat-value">24</p>
+                            <p class="stat-change positive"><i class="fas fa-arrow-up"></i> 12% from last month</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-card-info">
+                            <h3>Total Orders</h3>
+                            <p class="stat-value">156</p>
+                            <p class="stat-change positive"><i class="fas fa-arrow-up"></i> 8% from last month</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon">
+                            <i class="fas fa-rupee-sign"></i>
+                        </div>
+                        <div class="stat-card-info">
+                            <h3>Revenue</h3>
+                            <p class="stat-value">₹42,580</p>
+                            <p class="stat-change positive"><i class="fas fa-arrow-up"></i> 15% from last month</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-card-info">
+                            <h3>Customers</h3>
+                            <p class="stat-value">89</p>
+                            <p class="stat-change positive"><i class="fas fa-arrow-up"></i> 5% from last month</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-row">
+                    <div class="dashboard-card sales-chart-card">
+                        <div class="card-header">
+                            <h3>Monthly Sales</h3>
+                            <div class="card-actions">
+                                <select id="sales-period">
+                                    <option value="year">This Year</option>
+                                    <option value="6months">Last 6 Months</option>
+                                    <option value="3months">Last 3 Months</option>
+                                </select>
+                                <button class="btn-icon">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="salesChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card top-products-card">
+                        <div class="card-header">
+                            <h3>Top Products</h3>
+                            <div class="card-actions">
+                                <button class="btn-icon">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="topProductsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-row">
+                    <div class="dashboard-card recent-orders-card">
+                        <div class="card-header">
+                            <h3>Recent Orders</h3>
+                            <a href="farmer-orders.html" class="view-all">View All</a>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Order ID</th>
+                                            <th>Customer</th>
+                                            <th>Products</th>
+                                            <th>Amount</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#ORD-001</td>
+                                            <td>Rahul Sharma</td>
+                                            <td>Organic Tomatoes (3kg)</td>
+                                            <td>₹240</td>
+                                            <td>15 Mar 2023</td>
+                                            <td><span class="status-badge complete">Delivered</span></td>
+                                            <td>
+                                                <button class="btn-icon sm">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#ORD-002</td>
+                                            <td>Priya Singh</td>
+                                            <td>Fresh Potatoes (5kg), Organic Carrots (2kg)</td>
+                                            <td>₹320</td>
+                                            <td>14 Mar 2023</td>
+                                            <td><span class="status-badge processing">Processing</span></td>
+                                            <td>
+                                                <button class="btn-icon sm">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#ORD-003</td>
+                                            <td>Amit Kumar</td>
+                                            <td>Free-Range Eggs (2 dozen)</td>
+                                            <td>₹180</td>
+                                            <td>13 Mar 2023</td>
+                                            <td><span class="status-badge pending">Pending</span></td>
+                                            <td>
+                                                <button class="btn-icon sm">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#ORD-004</td>
+                                            <td>Neha Gupta</td>
+                                            <td>Fresh Apples (2kg)</td>
+                                            <td>₹240</td>
+                                            <td>12 Mar 2023</td>
+                                            <td><span class="status-badge complete">Delivered</span></td>
+                                            <td>
+                                                <button class="btn-icon sm">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#ORD-005</td>
+                                            <td>Vikram Patel</td>
+                                            <td>Organic Tomatoes (2kg), Fresh Potatoes (3kg)</td>
+                                            <td>₹280</td>
+                                            <td>11 Mar 2023</td>
+                                            <td><span class="status-badge cancelled">Cancelled</span></td>
+                                            <td>
+                                                <button class="btn-icon sm">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-row">
+                    <div class="dashboard-card inventory-alert-card">
+                        <div class="card-header">
+                            <h3>Low Inventory Alert</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="inventory-list">
+                                <li class="inventory-item critical">
+                                    <div class="inventory-info">
+                                        <h4>Organic Tomatoes</h4>
+                                        <p>Only 5kg left in stock</p>
+                                    </div>
+                                    <a href="farmer-products.html" class="btn sm-btn">Update</a>
+                                </li>
+                                <li class="inventory-item warning">
+                                    <div class="inventory-info">
+                                        <h4>Fresh Apples</h4>
+                                        <p>Only 12kg left in stock</p>
+                                    </div>
+                                    <a href="farmer-products.html" class="btn sm-btn">Update</a>
+                                </li>
+                                <li class="inventory-item warning">
+                                    <div class="inventory-info">
+                                        <h4>Organic Carrots</h4>
+                                        <p>Only 15kg left in stock</p>
+                                    </div>
+                                    <a href="farmer-products.html" class="btn sm-btn">Update</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card feedback-card">
+                        <div class="card-header">
+                            <h3>Recent Feedback</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="feedback-item">
+                                <div class="feedback-header">
+                                    <div class="feedback-user">
+                                        <img src="images/user1.jpg" alt="User">
+                                        <div>
+                                            <h4>Rahul Sharma</h4>
+                                            <div class="feedback-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="feedback-date">15 Mar 2023</div>
+                                </div>
+                                <p class="feedback-text">Your organic tomatoes are the best I've ever had. So fresh and flavorful!</p>
+                                <div class="feedback-product">Product: Organic Tomatoes</div>
+                            </div>
+                            <div class="feedback-item">
+                                <div class="feedback-header">
+                                    <div class="feedback-user">
+                                        <img src="images/user2.jpg" alt="User">
+                                        <div>
+                                            <h4>Priya Singh</h4>
+                                            <div class="feedback-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="feedback-date">14 Mar 2023</div>
+                                </div>
+                                <p class="feedback-text">The potatoes were good, but some were a bit small. Overall satisfied with the quality.</p>
+                                <div class="feedback-product">Product: Fresh Potatoes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html> 

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace - Kisan Bazar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Kisan Bazar</h1>
+            <span class="tagline">किसान बाज़ार</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="marketplace.html" class="active">Marketplace</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="login-btn"><a href="login.html">Login</a></li>
+                <li class="signup-btn"><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+        <div class="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <section class="marketplace-hero">
+        <div class="marketplace-hero-text">
+            <h1>Kisan Bazar Marketplace</h1>
+            <p>ताज़ा उपज सीधे किसानों से</p>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Search products..." id="search-input">
+            <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+    </section>
+
+    <section class="marketplace-container">
+        <div class="filter-sidebar">
+            <div class="filter-header">
+                <h3>Filters</h3>
+                <button id="clear-filters">Clear All</button>
+            </div>
+
+            <div class="filter-group">
+                <h4>Categories</h4>
+                <div class="filter-options">
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="vegetables" name="category" value="vegetables">
+                        <label for="vegetables">Vegetables</label>
+                    </div>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="grains" name="category" value="grains">
+                        <label for="grains">Grains</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h4>Price Range</h4>
+                <div class="filter-range">
+                    <input type="range" id="price-range" min="0" max="1000" step="10">
+                    <div class="range-values">
+                        <span id="min-price">₹0</span>
+                        <span id="max-price">₹1000</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h4>Availability</h4>
+                <div class="filter-options">
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="available" name="availability" value="available" checked>
+                        <label for="available">Available Now</label>
+                    </div>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="pre-book" name="availability" value="pre-book">
+                        <label for="pre-book">Pre-book</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h4>Rating</h4>
+                <div class="filter-options">
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="rating-4plus" name="rating" value="4">
+                        <label for="rating-4plus">4★ & above</label>
+                    </div>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="rating-3plus" name="rating" value="3">
+                        <label for="rating-3plus">3★ & above</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h4>Farming Practices</h4>
+                <div class="filter-options">
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="organic" name="farming" value="organic">
+                        <label for="organic">Organic</label>
+                    </div>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="natural" name="farming" value="natural">
+                        <label for="natural">Natural</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="products-container">
+            <div class="product-toolbar">
+                <div class="product-count">
+                    <p><span id="product-count">24</span> products found</p>
+                </div>
+                <div class="product-sort">
+                    <label for="sort-select">Sort by:</label>
+                    <select id="sort-select">
+                        <option value="recommended">Recommended</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Customer Rating</option>
+                        <option value="newest">Newest First</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="images/placeholder-tomatoes.jpg" alt="Organic Tomatoes">
+                        <span class="status available">Available</span>
+                        <div class="product-badges">
+                            <span class="badge organic">Organic</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(32)</span>
+                        </div>
+                        <h3>Organic Tomatoes</h3>
+                        <p class="farmer-name">By Green Valley Farms</p>
+                        <p class="product-description">Fresh, organically grown tomatoes perfect for salads and cooking.</p>
+                        <div class="product-price">
+                            <span class="price">₹80/kg</span>
+                            <div class="quantity-select">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" value="1" min="1" max="10">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn primary-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button class="btn wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="images/placeholder-rice.jpg" alt="Basmati Rice">
+                        <span class="status available">Available</span>
+                        <div class="product-badges">
+                            <span class="badge organic">Organic</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(42)</span>
+                        </div>
+                        <h3>Basmati Rice</h3>
+                        <p class="farmer-name">By Punjab Rice Fields</p>
+                        <p class="product-description">Premium long-grain basmati rice with authentic aroma and flavor.</p>
+                        <div class="product-price">
+                            <span class="price">₹95/kg</span>
+                            <div class="quantity-select">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" value="1" min="1" max="10">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn primary-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button class="btn wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="images/placeholder-wheat.jpg" alt="Organic Wheat">
+                        <span class="status available">Available</span>
+                        <div class="product-badges">
+                            <span class="badge organic">Organic</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(38)</span>
+                        </div>
+                        <h3>Organic Wheat</h3>
+                        <p class="farmer-name">By Haryana Golden Farms</p>
+                        <p class="product-description">Stone-ground organic wheat perfect for making rotis and chapatis.</p>
+                        <div class="product-price">
+                            <span class="price">₹45/kg</span>
+                            <div class="quantity-select">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" value="1" min="1" max="10">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn primary-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button class="btn wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="images/placeholder-potatoes.jpg" alt="Fresh Potatoes">
+                        <span class="status available">Available</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                            <span>(12)</span>
+                        </div>
+                        <h3>Fresh Potatoes</h3>
+                        <p class="farmer-name">By Golden Fields Farm</p>
+                        <p class="product-description">Fresh, locally grown potatoes perfect for all your cooking needs.</p>
+                        <div class="product-price">
+                            <span class="price">₹40/kg</span>
+                            <div class="quantity-select">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" value="1" min="1" max="10">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn primary-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button class="btn wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="images/placeholder-millets.jpg" alt="Organic Millets">
+                        <span class="status available">Available</span>
+                        <div class="product-badges">
+                            <span class="badge organic">Organic</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(29)</span>
+                        </div>
+                        <h3>Organic Millets</h3>
+                        <p class="farmer-name">By Karnataka Traditional Farms</p>
+                        <p class="product-description">Nutritious millets grown using traditional farming methods. High in fiber and protein.</p>
+                        <div class="product-price">
+                            <span class="price">₹70/kg</span>
+                            <div class="quantity-select">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" value="1" min="1" max="10">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn primary-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button class="btn wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="images/placeholder-carrots.jpg" alt="Organic Carrots">
+                        <span class="status pre-book">Pre-book</span>
+                        <div class="product-badges">
+                            <span class="badge organic">Organic</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(38)</span>
+                        </div>
+                        <h3>Organic Carrots</h3>
+                        <p class="farmer-name">By Sunshine Organics</p>
+                        <p class="product-description">Organic carrots grown without pesticides. Sweet and nutritious.</p>
+                        <div class="product-price">
+                            <span class="price">₹60/kg</span>
+                            <div class="quantity-select">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" value="1" min="1" max="10">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn primary-btn"><i class="fas fa-shopping-cart"></i> Pre-book</button>
+                            <button class="btn wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="images/placeholder-spinach.jpg" alt="Fresh Spinach (Palak)">
+                        <span class="status available">Available</span>
+                        <div class="product-badges">
+                            <span class="badge natural">Natural</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(22)</span>
+                        </div>
+                        <h3>Fresh Spinach (Palak)</h3>
+                        <p class="farmer-name">By Green Leaf Farms</p>
+                        <p class="product-description">Fresh, dark green spinach leaves. Rich in iron and antioxidants.</p>
+                        <div class="product-price">
+                            <span class="price">₹35/bunch</span>
+                            <div class="quantity-select">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" value="1" min="1" max="10">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn primary-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button class="btn wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="images/placeholder-jowar.jpg" alt="Organic Jowar">
+                        <span class="status available">Available</span>
+                        <div class="product-badges">
+                            <span class="badge organic">Organic</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(18)</span>
+                        </div>
+                        <h3>Organic Jowar</h3>
+                        <p class="farmer-name">By Maharashtra Dry Farms</p>
+                        <p class="product-description">Traditional sorghum grain rich in nutrients and perfect for rotis.</p>
+                        <div class="product-price">
+                            <span class="price">₹55/kg</span>
+                            <div class="quantity-select">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" value="1" min="1" max="10">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn primary-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button class="btn wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <button class="pagination-btn">4</button>
+                <button class="pagination-btn next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Kisan Bazar</h3>
+                <p>किसानों और उपभोक्ताओं को सीधे जोड़कर ताज़ा और स्वस्थ भोजन उपलब्ध कराते हैं।</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="marketplace.html">Marketplace</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 कृषि मार्ग, ग्रीन वैली</p>
+                <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                <p><i class="fas fa-envelope"></i> info@kisanbazar.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Kisan Bazar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/marketplace.js"></script>
+</body>
+</html> 

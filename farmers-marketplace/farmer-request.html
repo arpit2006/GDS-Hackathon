@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request to Companies - Kisan Bazar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <h2>Kisan Bazar</h2>
+                    <span class="tagline">किसान बाज़ार</span>
+                </div>
+                <div class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="farmer-dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="farmer-products.html">
+                            <i class="fas fa-boxes"></i>
+                            <span>Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="farmer-orders.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Orders</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="farmer-request.html">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Request to Companies</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="farmer-logistics.html">
+                            <i class="fas fa-truck"></i>
+                            <span>Logistics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="farmer-reports.html">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="farmer-profile.html">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <div class="dashboard-header">
+                <div class="header-title">
+                    <h1>Request to Companies</h1>
+                    <p>Submit your products to processing and retail companies</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="notification">
+                        <i class="far fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <img src="images/user-avatar.jpg" alt="User Avatar">
+                        </div>
+                        <div class="user-details">
+                            <h4>Farmer Name</h4>
+                            <p>Farmer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-row">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>New Product Request</h3>
+                        <p>Submit a new product request to companies</p>
+                    </div>
+                    <div class="card-body">
+                        <form id="company-request-form">
+                            <div class="form-group">
+                                <label for="company-type">Select Company Type</label>
+                                <select id="company-type" name="company-type" required>
+                                    <option value="">Select a type</option>
+                                    <option value="food-processing">Food Processing Company</option>
+                                    <option value="retail">Retail Chain</option>
+                                    <option value="export">Export Company</option>
+                                    <option value="restaurant">Restaurant Chain</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="company-name">Company Name</label>
+                                <input type="text" id="company-name" name="company-name" placeholder="Enter company name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-category">Product Category</label>
+                                <select id="product-category" name="product-category" required>
+                                    <option value="">Select a category</option>
+                                    <option value="vegetables">Vegetables</option>
+                                    <option value="grains">Grains</option>
+                                    <option value="fruits">Fruits</option>
+                                    <option value="dairy">Dairy Products</option>
+                                    <option value="spices">Spices</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-name">Product Name</label>
+                                <input type="text" id="product-name" name="product-name" placeholder="Enter product name" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label for="quantity">Quantity Available</label>
+                                    <input type="number" id="quantity" name="quantity" min="1" required>
+                                </div>
+                                <div class="form-group half">
+                                    <label for="unit">Unit</label>
+                                    <select id="unit" name="unit" required>
+                                        <option value="kg">Kilogram (kg)</option>
+                                        <option value="ton">Metric Ton</option>
+                                        <option value="quintal">Quintal</option>
+                                        <option value="dozen">Dozen</option>
+                                        <option value="piece">Piece</option>
+                                        <option value="L">Liter (L)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="price-expected">Expected Price (₹ per unit)</label>
+                                <input type="number" id="price-expected" name="price-expected" min="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="available-from">Available From</label>
+                                <input type="date" id="available-from" name="available-from" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-description">Product Description</label>
+                                <textarea id="product-description" name="product-description" rows="4" placeholder="Describe your product quality, organic certifications, etc." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-photo">Product Photos</label>
+                                <input type="file" id="product-photo" name="product-photo" accept="image/*" multiple>
+                                <small>Upload up to 3 photos of your product</small>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="can-negotiate" name="can-negotiate">
+                                <label for="can-negotiate">Price is negotiable</label>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="can-deliver" name="can-deliver">
+                                <label for="can-deliver">Can arrange delivery</label>
+                            </div>
+                            <button type="submit" class="btn primary-btn full-width">Submit Request</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Previous Requests</h3>
+                        <div class="card-actions">
+                            <button class="btn-icon sm">
+                                <i class="fas fa-filter"></i>
+                            </button>
+                            <button class="btn-icon sm">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Request ID</th>
+                                        <th>Company</th>
+                                        <th>Product</th>
+                                        <th>Quantity</th>
+                                        <th>Sent On</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>REQ-001</td>
+                                        <td>ABC Food Processing</td>
+                                        <td>Organic Wheat</td>
+                                        <td>500 kg</td>
+                                        <td>15 Mar 2023</td>
+                                        <td><span class="status-badge pending">Pending</span></td>
+                                        <td>
+                                            <button class="btn-icon sm">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn-icon sm">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>REQ-002</td>
+                                        <td>XYZ Retail</td>
+                                        <td>Basmati Rice</td>
+                                        <td>1 ton</td>
+                                        <td>10 Mar 2023</td>
+                                        <td><span class="status-badge complete">Accepted</span></td>
+                                        <td>
+                                            <button class="btn-icon sm">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn-icon sm">
+                                                <i class="fas fa-file-contract"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>REQ-003</td>
+                                        <td>Fresh Mart</td>
+                                        <td>Organic Potatoes</td>
+                                        <td>200 kg</td>
+                                        <td>05 Mar 2023</td>
+                                        <td><span class="status-badge cancelled">Rejected</span></td>
+                                        <td>
+                                            <button class="btn-icon sm">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn-icon sm">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-row">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Company Directory</h3>
+                        <p>Browse companies looking for products like yours</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="company-list">
+                            <div class="company-item">
+                                <div class="company-logo">
+                                    <img src="images/company1.jpg" alt="Food Corp India">
+                                </div>
+                                <div class="company-info">
+                                    <h4>Food Corp India</h4>
+                                    <p>Looking for: Wheat, Rice, Pulses</p>
+                                    <p class="company-location"><i class="fas fa-map-marker-alt"></i> Delhi, Haryana, Punjab</p>
+                                    <button class="sm-btn">Send Request</button>
+                                </div>
+                            </div>
+                            <div class="company-item">
+                                <div class="company-logo">
+                                    <img src="images/company2.jpg" alt="Organic Exports Ltd">
+                                </div>
+                                <div class="company-info">
+                                    <h4>Organic Exports Ltd</h4>
+                                    <p>Looking for: Certified Organic Produce</p>
+                                    <p class="company-location"><i class="fas fa-map-marker-alt"></i> Mumbai, Karnataka</p>
+                                    <button class="sm-btn">Send Request</button>
+                                </div>
+                            </div>
+                            <div class="company-item">
+                                <div class="company-logo">
+                                    <img src="images/company3.jpg" alt="Farm Fresh Retail">
+                                </div>
+                                <div class="company-info">
+                                    <h4>Farm Fresh Retail</h4>
+                                    <p>Looking for: Vegetables, Fruits, Dairy</p>
+                                    <p class="company-location"><i class="fas fa-map-marker-alt"></i> Pan India</p>
+                                    <button class="sm-btn">Send Request</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/company-request.js"></script>
+</body>
+</html> 
