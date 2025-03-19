@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "id": "test-user-123",
+    "email": "test@example.com",
+    "password": "password123",
+    "fullname": "Test User",
+    "mobile": "1234567890",
+    "isFarmer": false,
+    "createdAt": "2025-03-19T10:17:16.458Z"
+  }
+]

@@ -58,16 +58,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
+            // Fixed: Check if user type matches selected type (but don't block login if it doesn't)
             if (user.isFarmer !== isFarmer) {
-                alert(`Please select the correct user type. You are registered as a ${user.isFarmer ? 'Farmer' : 'Buyer'}.`);
-                return;
+                // Just switch the toggle to match the registered user type
+                if (user.isFarmer) {
+                    farmerToggle.classList.add('active');
+                    buyerToggle.classList.remove('active');
+                } else {
+                    buyerToggle.classList.add('active');
+                    farmerToggle.classList.remove('active');
+                }
             }
             
             // Store current user in localStorage
             localStorage.setItem('currentUser', JSON.stringify(user));
             
             // Redirect based on user type
-            if (isFarmer) {
+            if (user.isFarmer) {
                 window.location.href = 'farmer-dashboard.html';
             } else {
                 window.location.href = 'marketplace.html';

@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             id: 1,
             name: 'Organic Tomatoes',
-            farmer: 'Green Valley Farms',
+            farmer: 'Farms',
             price: 80,
             priceUnit: 'kg',
             category: 'vegetables',
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             id: 2,
             name: 'Basmati Rice',
-            farmer: 'Punjab Rice Fields',
+            farmer: 'Fields',
             price: 95,
             priceUnit: 'kg',
             category: 'grains',
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 4,
-            name: 'Fresh Potatoes',
+            name: 'Brinjal',
             farmer: 'Golden Fields Farm',
             price: 40,
             priceUnit: 'kg',
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 5,
-            name: 'Organic Millets',
+            name: 'Carrot',
             farmer: 'Karnataka Traditional Farms',
             price: 70,
             priceUnit: 'kg',
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 6,
-            name: 'Organic Carrots',
+            name: 'Ragi',
             farmer: 'Sunshine Organics',
             price: 60,
             priceUnit: 'kg',
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 7,
-            name: 'Fresh Spinach (Palak)',
+            name: 'Jowar ',
             farmer: 'Green Leaf Farms',
             price: 35,
             priceUnit: 'bunch',
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 8,
-            name: 'Organic Jowar',
+            name: 'Ragi',
             farmer: 'Maharashtra Dry Farms',
             price: 55,
             priceUnit: 'kg',

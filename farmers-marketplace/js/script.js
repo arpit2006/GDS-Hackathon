@@ -84,12 +84,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Set placeholder images for product cards
         const productImages = document.querySelectorAll('.product-img img');
         const placeholders = [
-            'https://images.unsplash.com/photo-1594057687713-5fd14eed1c17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80', // tomatoes
-            'https://images.unsplash.com/photo-1630563451961-ac2ff27616ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80', // apples
-            'https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80', // milk
-            'https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80', // potatoes
-            'https://images.unsplash.com/photo-1587486913049-53fc88980cfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80', // eggs
-            'https://images.unsplash.com/photo-1447175008436-054170c2e979?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80' // carrots
+            'images/tomatoes.jpg', // tomatoes'
+            'images/basmati.webp', // tomatoes'
+            'images/wheat.jpg', // tomatoes'
+            'images/brinjal.webp', // tomatoes'
+            'images/carrot.webp', // tomatoes'
+            'images/ragi crop.webp', // tomatoes'
+            'images/jowar.webp', // tomatoes'
+            'images/wheat.jpg', // tomatoes'
         ];
         
         productImages.forEach((img, index) => {
