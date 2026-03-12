@@ -25,8 +25,6 @@ Built during the <b>GDG Hackathon</b> to support local farmers and promote tradi
 <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" width="750">
 </p>
 
-> Replace this GIF with a screen recording of the marketplace for best results.
-
 ---
 
 # 📌 Overview
